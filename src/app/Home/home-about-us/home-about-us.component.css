@@ -1,0 +1,63 @@
+.form-control::placeholder {
+  color: grey;
+  font-size: 15px;
+}
+/* Apply a red border to invalid form controls */
+input.ng-invalid {
+  border: 1px solid red;
+}
+
+/* Apply a yellow background to form controls with a "required" error */
+input.ng-invalid[required] {
+  background-color: yellow;
+}
+.btn:invalid
+{
+}
+
+.ant-spin-dot-item
+{
+  background-color:white !important;
+}
+
+.btn{
+  background-color: #0d95e8 ;
+  font-size:20px;
+  font-weight: bold;
+}
+.labelCustom
+{
+  margin-top: -20px;
+  display: inline-block;
+  font-size: 22px;
+}
+.btn::before, .btn-primary::before{
+  background-color: #2e6da4 ;
+  color: white;
+  font-size:20px;
+  font-weight: bold;
+  transition-duration: 0s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: transform;
+}
+.btn-primary.disabled, .btn-primary:disabled
+{
+  background-color: darkslategrey !important;
+  color: white;
+  border-color:darkslategrey ;
+}
+.btn:disabled {
+  background-color: #ccc !important; /* Change the background color to gray when hovering over a disabled button */
+  cursor: not-allowed; /* Change the cursor to not-allowed when hovering over a disabled button */
+  pointer-events: none !important;
+}
+.btn-primary:not(:disabled):hover {
+  cursor: pointer; /* Change the cursor to pointer when hovering over a non-disabled button */
+}
+h3
+{
+  color: #181818;
+  font-size: 16px;
+  font-family: SF-Bold;
+}

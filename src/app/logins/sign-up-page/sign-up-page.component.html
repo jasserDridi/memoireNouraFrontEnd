@@ -1,0 +1,108 @@
+<app-home-header></app-home-header>
+
+
+<div class="content">
+
+  <div class="container" style="margin-top: 180px">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="/assets/img/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
+
+      </div>
+      <div class="col-md-6 contents">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="mb-4">
+              <h3>S'inscrire </h3>
+              <p class="mb-4">
+                Veuillez vous connecter pour accéder à vos cours et ressources.</p>
+            </div>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="form-group first" style="margin-bottom: 20px">
+
+                <input type="text" class="form-control" formControlName="nom" placeholder="Nom" id="nom">
+
+              </div>
+              <div class="form-group first" style="margin-bottom: 20px">
+
+                <input type="text" class="form-control" formControlName="prenom" placeholder="Prenom" id="prenom">
+
+              </div>
+              <div class="form-group" style="margin-bottom: 20px">
+                <input type="text" class="form-control" formControlName="email" placeholder="Email">
+              </div>
+              <div class="form-group" style="margin-bottom: 20px">
+                <input type="text" class="form-control" formControlName="telNbr" placeholder="Numero téléphonique">
+              </div>
+              <div class="form-group" style="margin-bottom: 20px">
+                <input type="text" class="form-control" formControlName="lieu" placeholder="lieu">
+              </div>
+              <div class="form-group last mb-4" style="padding: 0px;margin-bottom: 20px">
+                <nz-input-group [nzSuffix]="suffixTemplate" style="padding-top: 15px;
+    background-color: #edf2f5;
+    border: 0px;
+    width: 350px;
+    height: 70px;
+    text-align: center;">
+                  <input
+                    class="form-control"
+                    [type]="passwordVisible ? 'text' : 'password'"
+                    nz-input
+                    formControlName="password"
+
+                    placeholder="mot de passe"
+                    [(ngModel)]="password"
+                  />
+                </nz-input-group>
+                <ng-template #suffixTemplate>
+      <span
+        nz-icon
+        [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+        (click)="passwordVisible = !passwordVisible"
+      ></span>
+                </ng-template>
+                <!--<input type="password" class="form-control" formControlName="password" placeholder="password"> !-->
+              </div>
+              <div class="form-group last mb-4" style="padding: 0px;margin-bottom: 20px">
+                <nz-input-group [nzSuffix]="suffixTemplate2" style="padding-top: 15px;
+    background-color: #edf2f5;
+    border: 0px;
+    width: 350px;
+    height: 70px;
+    text-align: center;">
+                  <input
+                    class="form-control"
+                    [type]="passwordVisible2 ? 'text' : 'password'"
+                    nz-input
+                    formControlName="confirmPassword"
+                    placeholder="Confirmez le mot de passe"
+                    [(ngModel)]="password2"
+                  />
+                </nz-input-group>
+                <ng-template #suffixTemplate2>
+      <span
+        nz-icon
+        [nzType]="passwordVisible2 ? 'eye-invisible' : 'eye'"
+        (click)="passwordVisible2 = !passwordVisible2"
+      ></span>
+                </ng-template>
+              </div>
+              <div style="display: flex">
+                <input type="radio" value="CLIENT" formControlName="role" > <span style="margin-left:10px;margin-right:100px;font-size: 17px;color:#1890ff;font-weight: bold;display: inline-block">Client</span> <br>
+             <input type="radio" value="PRESTATAIRE" formControlName="role" > <span  style="margin-left:10px;font-size: 17px;color:#1890ff;font-weight: bold;display: inline-block">Prestatire</span>
+              </div>
+              <button type="submit" [disabled]="disabled()" class="btn  btn-primary" style="font-size: 20px;margin-top: 20px; display: flex;
+  align-items: center;
+  width: 350px;
+  justify-content: center;" >  <span class="labelCustom" (click)="addUser()"><nz-spin nzSimple *ngIf="spining"></nz-spin> S'Inscrire</span>
+              </button>
+              <nz-alert nzType="warning" *ngIf="addUser()" nzMessage="mote de passe n'est pas la même" nzShowIcon></nz-alert>
+              <nz-alert nzType="warning" *ngIf="this.warning" nzMessage="Un compte avec cette adresse e-mail existe déjà. Veuillez vous connecter plutôt." nzShowIcon></nz-alert>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

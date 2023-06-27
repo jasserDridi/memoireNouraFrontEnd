@@ -1,0 +1,82 @@
+<div  class="container">
+  <h1 class="title">{{welcomeMessage()}} </h1>
+  <h3 >Ici vous pouvez configurer et gérer vos formations, services , payement , messanger et evenement  </h3>
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="8">
+      <a routerLink="/prestatire/formation">
+        <nz-card class="card flex-container " nzHoverable="false">
+          <div class="flex-container">
+            <h1 class="cardTitle">Formations</h1>
+
+            <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+          </div>
+          <h4 class="cardContent">Gestion et organisation de formations en ligne</h4>
+        </nz-card>
+      </a>
+    </div>
+    <div nz-col [nzSpan]="8">
+      <a routerLink="/prestatire/events">
+      <nz-card class="card" >
+        <div class="flex-container">
+          <h1 class="cardTitle">Evenement</h1>
+          <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+        </div>
+        <h4 class="cardContent">Gestion des médias des bannières publicitaires</h4>
+      </nz-card>
+      </a>
+    </div>
+
+    <div nz-col [nzSpan]="8">
+      <a routerLink="/prestatire/services">
+      <nz-card class="card">
+        <div class="flex-container">
+          <h1 class="cardTitle">Service</h1>
+
+          <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+        </div>
+        <h4 class="cardContent">Gestion des services et des demandes de la clientèle</h4>
+      </nz-card>
+      </a>
+    </div>
+  </div>
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="8">
+      <a routerLink="/prestatire/payement">
+        <nz-card class="card flex-container " nzHoverable="false">
+          <div class="flex-container">
+            <h1 class="cardTitle">Payement</h1>
+
+            <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+          </div>
+          <h4 class="cardContent">Gestion et overview de transactions</h4>
+        </nz-card>
+      </a>
+    </div>
+    <div nz-col [nzSpan]="8">
+      <a routerLink="/prestatire/messagerie">
+        <nz-card class="card" >
+
+          <div class="flex-container">
+            <h1 class="cardTitle">Boîte de message </h1>
+
+            <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+          </div>
+          <h4 class="cardContent">Gestion des messages</h4>
+        </nz-card>
+      </a>
+    </div>
+    <div nz-col [nzSpan]="8">
+      <a routerLink="/prestatire/promotion">
+        <nz-card class="card" >
+
+          <div class="flex-container">
+            <h1 class="cardTitle">Promotions</h1>
+
+            <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+          </div>
+          <h4 class="cardContent">Gestion des promotions</h4>
+        </nz-card>
+      </a>
+    </div>
+  </div>
+</div>

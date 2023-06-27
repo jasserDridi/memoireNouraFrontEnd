@@ -1,0 +1,48 @@
+<div  class="container">
+  <h1 class="title">{{welcomeMessage()}} </h1>
+  <h3 >Ici vous pouvez gérer  payement , messanger  </h3>
+  <div nz-row [nzGutter]="8">
+
+
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="8">
+      <a routerLink="/client/payement">
+        <nz-card class="card flex-container " nzHoverable="false">
+          <div class="flex-container">
+            <h1 class="cardTitle">Payement</h1>
+
+            <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+          </div>
+          <h4 class="cardContent">overview Votre transactions    </h4>
+        </nz-card>
+      </a>
+    </div>
+    <div nz-col [nzSpan]="8">
+      <a routerLink="/client/messaging">
+        <nz-card class="card" >
+
+          <div class="flex-container">
+            <h1 class="cardTitle">Boîte de message </h1>
+
+            <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+          </div>
+          <h4 class="cardContent">les messages que vous avez envoyés et reçus</h4>
+        </nz-card>
+      </a>
+    </div>
+    <div nz-col [nzSpan]="8">
+      <a routerLink="/client/events">
+        <nz-card class="card" >
+
+          <div class="flex-container">
+            <h1 class="cardTitle">Evenement</h1>
+
+            <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+          </div>
+          <h4 class="cardContent">overview de code qr de votre evenement</h4>
+        </nz-card>
+      </a>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,78 @@
+<nz-result nzStatus="403" nzTitle="403" nzSubTitle="Désolé, vous n'êtes pas autorisé à accéder à cette page.
+Merci de vous connecter " style="margin-top: 150px; margin-bottom: 150px;margin:auto" *ngIf="sessionStorage.getItem('userRole')!= 'CLIENT'">
+  <div nz-result-extra>
+    <button nz-button nzType="primary" (click)="goLogin()" >accueil</button>
+
+  </div>
+</nz-result>
+<nz-layout class="app-layout"  *ngIf="sessionStorage.getItem('userRole')== 'CLIENT'">
+
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a href="https://ng.ant.design/" target="_blank">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+        <h1>Espace client</h1>
+      </a>
+    </div>
+    <ul  nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-menu-item  >
+        <span nz-icon  nzType="home"></span>
+        <span>  <a  routerLink="/home" >Page D'acceuil</a></span>
+      </li>
+      <li nz-menu-item  >
+        <span nz-icon  nzType="home"></span>
+        <span>  <a  routerLink="/home" >Acceuil</a></span>
+      </li>
+      <li nz-menu-item  >
+        <span nz-icon  nzType="comment"></span>
+        <span>  <a  routerLink="/client/messagerie" >Messanger</a></span>
+      </li>
+
+      <li nz-menu-item  >
+        <span nz-icon  nzType="dollar-circle"></span>
+        <span>  <a  routerLink="/client/transactions" >Transactions</a></span>
+      </li>
+      <li nz-menu-item  >
+        <span nz-icon  nzType="dollar-circle"></span>
+        <span>  <a  routerLink="/client/events" >Evenement</a></span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <span class="trigger"
+                  nz-icon
+                  [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></span>
+        </span>
+
+        <div class="dropdown">
+          <li class="button-header" ><a (click)="logout()" class="button-35" >Se déconnecter
+
+          </a>
+          </li>
+        </div>
+      </div>
+
+
+
+
+    </nz-header>
+
+    <nz-content>
+      <div class="inner-content">
+
+
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('./assets/assets/fonts/SFProDisplay-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+a, area, button, [role='button'], input:not([type='range']), label, select, summary, textarea {
+  touch-action: manipulation;
+  border-radius: 5px;
+  mso-border-shadow: yes;
+}
+@font-face {
+  font-family: 'specail';
+  src: url('./assets/assets/fonts/SFProDisplay-Semibold.woff') format('woff'),
+  url('./assets/assets/fonts/SFProDisplay-Semibold.woff') format('woff');
+  /* Add other font formats if necessary */
+  font-weight: normal;
+  font-style: normal;
+}

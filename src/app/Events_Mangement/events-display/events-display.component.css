@@ -1,0 +1,70 @@
+.image-row {
+}
+
+.image-row img {
+  float:left;
+  margin: 5px; /* Optional: Add some spacing between images */
+}
+.container
+{
+
+
+  height: 100%;
+  width: 100% !important;
+  margin:auto;
+  margin-top:140px
+
+}
+.title{
+  font-family: SF Pro Display, serif;
+  font-size: 50px;
+  margin-top: -100px;
+  margin-bottom: +0px;
+
+}
+.collapse
+{
+  background-color: rgba(255, 255, 255, 0);
+  font-size: larger;
+  font-weight: 700;
+  font-family: system-ui;
+  border-bottom: 2px solid #f0f2f5;
+
+  color: rgba(231, 231, 231, 0.73) !important;
+  line-height: 1.5715;
+  cursor: pointer;
+  transition: all 0.8s, visibility 0s;
+
+}
+
+.addButton
+{
+  float: right;
+  border-radius: 18px;
+  font-size: 17px;
+  min-height: 36px;
+  display: inline;
+  min-width: 170px;
+  background-color: transparent;
+  color: green;
+  margin-top: -50px;
+  border: 1px solid green;
+}
+.addButton :disabled
+{
+  float: right;
+  border-radius: 18px;
+  font-size: 17px;
+  min-height: 36px;
+  display: inline;
+  min-width: 170px;
+  background-color: transparent;
+  color: green;
+  margin-top: -102px;
+  margin-bottom: +50px;
+  border: 1px solid green;
+}
+.center-table td,
+.center-table th {
+  text-align: center; /* Center the content horizontally within cells */
+}

@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+}
+
+.left-div {
+  float:left;
+  background-color: lightblue;
+}
+
+.right-div {
+  float:right;
+  background-color: lightgreen;
+}

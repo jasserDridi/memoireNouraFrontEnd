@@ -1,0 +1,55 @@
+.form-control::placeholder {
+  color: grey;
+  font-size: 15px;
+}
+/* Apply a red border to invalid form controls */
+input.ng-invalid {
+  border: 1px solid red;
+}
+
+/* Apply a yellow background to form controls with a "required" error */
+input.ng-invalid[required] {
+  background-color: yellow;
+}
+.btn:invalid
+{
+  color: red;
+}
+
+button:hover {
+  background-color: #ff0000; /* Change to red on hover */
+}
+.btn{
+  background-color: #0d95e8 ;
+
+}
+.btn::before{
+  background-color: #2e6da4 ;
+  color: white;
+  transition-duration: 0s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: transform;
+   }
+.btn-primary.disabled, .btn-primary:disabled
+{
+  background-color: darkslategrey !important;
+  color: white;
+  border-color:darkslategrey ;
+}
+.btn:disabled {
+  background-color: #ccc !important; /* Change the background color to gray when hovering over a disabled button */
+  cursor: not-allowed; /* Change the cursor to not-allowed when hovering over a disabled button */
+  pointer-events: none !important;
+}
+
+.labelCustom
+{
+  margin-top: -40px;
+  display: inline-block;
+  vertical-align: middle;
+}
+input[type="radio"]:checked {
+  /* Custom styles for the checked radio button */
+  background-color: #1da1f2;
+}

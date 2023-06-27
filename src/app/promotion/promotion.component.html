@@ -1,0 +1,56 @@
+<div class="container">
+  <h1  class="title">Formation</h1>
+
+  <button nz-button class=" label-item lang-btn addButton" nzType="primary" routerLink="/prestatire/addFormation"  style="float: right">Ajouter une formation </button>
+
+
+  <nz-table #sortTable [nzData]="listOfData"  nzSize="middle" nzTableLayout="fixed" [nzLoading]="loading"  class="collapse center-table">
+    <thead>
+    <tr>
+      <th *ngFor="let column of listOfColumn">
+        {{ column.title }}
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of sortTable.data" >
+      <td >{{ formatDate( data.dateDebut) }}</td>
+      <td >{{ formatDate( data.dateFin) }}</td>
+      <td >{{ data.pourcentage }}%</td>
+      <td> <a (click)="showModal(data)"> <span nz-icon nzType="eye" nzTheme="outline"></span> </a> </td>
+
+      <td>
+        <button nz-button nzDanger style="width: 50px;margin-right: 7px" nzType="primary" (click)="showDeleteConfirm(data.id)"><span nz-icon nzType="delete" nzTheme="outline"></span></button>
+      </td>
+    </tbody>
+  </nz-table>
+
+</div>
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Articles On Promo"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [nzOkLoading]="isOkLoading">
+  <ng-container *nzModalContent>
+
+
+
+  <table>
+    <thead>
+    <tr>
+    <th>Nom Article </th>
+    <th>Type Article</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of listOfDataService">
+    <td >{{ item.serviceName }}</td>
+    <td >{{ item.serviceType }}</td>
+    </tr>
+    </tbody>
+
+  </table>
+  </ng-container>
+
+</nz-modal>

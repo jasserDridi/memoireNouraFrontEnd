@@ -1,0 +1,134 @@
+<nz-result nzStatus="403" nzTitle="403" nzSubTitle="Désolé, vous n'êtes pas autorisé à accéder à cette page.
+Merci de vous connecter " style="margin-top: 150px; margin-bottom: 150px;margin:auto" *ngIf="sessionStorage.getItem('userRole')!= 'PRESTATAIRE'">
+  <div nz-result-extra>
+    <button nz-button nzType="primary" (click)="goLogin()" >accueil</button>
+
+  </div>
+</nz-result>
+
+<nz-layout class="app-layout"  *ngIf="sessionStorage.getItem('userRole')== 'PRESTATAIRE'">
+
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a href="https://ng.ant.design/" target="_blank">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+        <h1>Espace prestatire</h1>
+      </a>
+    </div>
+    <ul  nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-menu-item  >
+        <span nz-icon  nzType="home"></span>
+        <span>  <a  routerLink="/home" >Page D'acceuil</a></span>
+      </li>
+      <li nz-menu-item  >
+        <span nz-icon  nzType="home"></span>
+        <span>  <a  routerLink="/prestatire/homePage" >Acceuil</a></span>
+      </li>
+      <li nz-menu-item  >
+        <span nz-icon  nzType="home"></span>
+        <span>  <a  routerLink="/prestatire/messagerie" >Messanger</a></span>
+      </li>
+      <li nz-menu-item  >
+        <span nz-icon  nzType="dollar-circle"></span>
+        <span>  <a  routerLink="/prestatire/payement" >Payement</a></span>
+      </li>
+      <li nz-submenu  nzTitle="Service" nzIcon="setting">
+        <ul>
+          <li nz-menu-item nzMatchRouter nz-icon="setting">
+            <a routerLink="/prestatire/addService">Ajoute Service</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/prestatire/services">Afficher des services</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu  nzTitle="Promotion" nzIcon="calendar">
+        <ul>
+          <li nz-menu-item nzMatchRouter nz-icon="setting">
+            <a routerLink="/prestatire/addPromotion">Ajoute Promotion</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/prestatire/promotion">Afficher promotions</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu  nzTitle="boîte de message" nzIcon="comment" >
+        <ul>
+          <li nz-menu-item nzMatchRouter >
+            <a routerLink="/prestatire/sh">None</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/prestatire/messagerie">Afficher les messages</a>
+          </li>
+
+
+        </ul>
+      </li>
+
+
+
+      <li nz-submenu  nzTitle="Formation" nzIcon="form" >
+        <ul>
+          <li nz-menu-item nzMatchRouter >
+            <a routerLink="/prestatire/addFormation">Ajoute formation</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/prestatire/formation">Afficher les formation</a>
+          </li>
+
+
+        </ul>
+      </li>
+      <li nz-submenu  nzTitle="Evenement" nzIcon="environment" >
+        <ul>
+          <li nz-menu-item nzMatchRouter >
+            <a routerLink="/prestatire/homePag">Ajoute evenement</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/prestatire/events">Afficher les evenements</a>
+          </li>
+
+
+        </ul>
+      </li>
+
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <span class="trigger"
+                  nz-icon
+                  [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></span>
+        </span>
+
+        <div class="dropdown">
+          <li class="button-header" ><a (click)="logout()" class="button-35" >Se déconnecter
+
+          </a>
+          </li>
+        </div>
+      </div>
+
+
+
+
+    </nz-header>
+
+    <nz-content>
+      <div class="inner-content">
+
+
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

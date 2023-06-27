@@ -1,0 +1,27 @@
+<div class="container">
+  <h1  class="title">Transactions</h1>
+
+
+
+  <nz-table #sortTable [nzData]="listOfData"  nzSize="middle" nzTableLayout="fixed" [nzLoading]="loading"  class="collapse center-table">
+    <thead>
+    <tr>
+      <th *ngFor="let column of listOfColumn">
+        {{ column.title }}
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of sortTable.data" >
+      <td >{{ data.prestatireNom }}</td>
+      <td>{{ data.itemType }}</td>
+      <td>{{ data.prix }} DT </td>
+      <td> <span  style="padding: 3px;border-radius: 10%" [ngClass]="{
+  'status-pending': data.status === 'En attente',
+  'status-rejected': data.status === 'Refuse',
+  'status-accepted': data.status === 'Accepte'
+}">{{ data.status }} </span></td>
+    </tbody>
+  </nz-table>
+
+</div>

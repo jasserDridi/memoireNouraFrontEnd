@@ -1,0 +1,194 @@
+<div class="container">
+  <h1  class="title">Formation</h1>
+
+  <button nz-button class=" label-item lang-btn addButton" nzType="primary" routerLink="/prestatire/addFormation"  style="float: right">Ajouter une formation </button>
+
+
+  <nz-table #sortTable [nzData]="listOfData"  nzSize="middle" nzTableLayout="fixed" [nzLoading]="loading"  class="collapse center-table">
+    <thead>
+    <tr>
+      <th *ngFor="let column of listOfColumn">
+        {{ column.title }}
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of sortTable.data" >
+      <td >{{ data.nom }}</td>
+      <td>{{ data.description !== null ? (data.description.length > 50 ? (data.description.substring(0, 30) + '...') : data.description) : '-' }}</td>
+      <td>{{ data.contenu !== null ? (data.contenu.length > 50 ? (data.contenu.substring(0, 30) + '...') : data.contenu) : '-' }}</td>
+      <td>{{ data.dure }}H </td>
+      <td>{{ data.prix }} DT </td>
+      <td>{{ data.language }} </td>
+      <td>{{ data.niveau }}
+      <td>{{ data.prerequis !== null ? (data.prerequis.length > 50 ? (data.prerequis.substring(0, 30) + '...') : data.prerequis) : '-' }}</td>
+      <td>{{ data.offersCertification ? 'Oui' : 'Non' }}</td>
+      <td >
+        <div *ngFor="let glory of data?.images" class="image-row" >
+          <img src="{{ glory }}" width="50px" height="50px" alt="test">
+        </div>
+      </td>
+      <td>
+        <button nz-button nzDanger style="width: 50px;margin-right: 7px" nzType="primary" (click)="showDeleteConfirm(data.id)"><span nz-icon nzType="delete" nzTheme="outline"></span></button>
+        <button nz-button nzBlock style="width: 50px" nzType="primary" (click)="showModal(data)"> <span nz-icon nzType="edit" nzTheme="outline"></span></button>
+      </td>
+    </tbody>
+  </nz-table>
+
+</div>
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Modifier Formation"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [nzOkLoading]="isOkLoading"
+>
+  <form
+    nz-form
+
+    [nzLayout]="'horizontal'"
+    [formGroup]="addForm"
+    *nzModalContent
+  >
+    <nz-collapse [nzBordered]="false" class="collapse">
+      <nz-collapse-panel   nzHeader="Nom *" [nzActive]="">
+        <nz-form-item>
+          <nz-form-control  nzErrorTip="cette champ est obligatoire">
+            <input class="input" nz-input formControlName="name"   />
+          </nz-form-control>
+        </nz-form-item>
+
+      </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse [nzBordered]="false" class="collapse">
+      <nz-collapse-panel  nzHeader="Description" [nzActive]="">
+
+        <nz-form-item>
+          <nz-form-control >
+            <nz-textarea-count >
+              <textarea formControlName="description" class="input" nz-input style="height: 80px"  ></textarea>
+            </nz-textarea-count>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse [nzBordered]="false" class="collapse">
+      <nz-collapse-panel  nzHeader="Contenu *" [nzActive]="">
+
+        <nz-form-item>
+          <nz-form-control  nzErrorTip="cette champ est obligatoire">
+            <input nz-input  class="input" formControlName="contenu"  />
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse [nzBordered]="false" class="collapse">
+      <nz-collapse-panel  nzHeader="Duree * " [nzActive]="">
+
+        <nz-form-item>
+          <nz-form-control  nzErrorTip="cette champ est obligatoire">
+            <input nz-input  class="input" type="number" formControlName="dure"  />
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse [nzBordered]="false" class="collapse" >
+      <nz-collapse-panel  nzHeader="Prix * " [nzActive]="">
+        <nz-form-item>
+          <nz-form-control  nzErrorTip="cette champ est obligatoire">
+            <input nz-input  class="input" type="number" formControlName="prix"  />
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse [nzBordered]="false" class="collapse" >
+      <nz-collapse-panel  nzHeader="language * " [nzActive]="">
+        <nz-form-item>
+          <nz-form-control  nzErrorTip="cette champ est obligatoire">
+            <input nz-input  class="input" type="text" formControlName="language"  />
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse [nzBordered]="false" class="collapse">
+      <nz-collapse-panel   nzHeader="Niveau  " [nzActive]="">
+        <nz-form-item>
+          <nz-form-control   nzErrorTip="cette champ est obligatoire">
+            <input nz-input type="text" class="input" formControlName="niveau"  />
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse [nzBordered]="false" class="collapse">
+      <nz-collapse-panel  nzHeader="Prerequis" [nzActive]="">
+
+        <nz-form-item>
+          <nz-form-control    nzErrorTip="cette champ est obligatoire">
+            <input nz-input class="input" formControlName="prerequis"  />
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+
+    <nz-collapse [nzBordered]="false" class="collapse">
+      <nz-collapse-panel  nzHeader="offrir un certificat" [nzActive]="">
+
+        <nz-form-item>
+          <nz-form-control    nzErrorTip="cette champ est obligatoire">
+            <nz-radio-group  formControlName="offersCertification" >
+              <label nz-radio [nzValue]=true>Oui</label>
+              <label nz-radio [nzValue]=false>Non</label>
+            </nz-radio-group>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse [nzBordered]="false" class="collapse">
+      <nz-collapse-panel  nzHeader="category" [nzActive]="">
+
+        <nz-form-item>
+          <nz-form-control    nzErrorTip="cette champ est obligatoire">
+            <nz-select nzShowSearch nzAllowClear [(ngModel)]="selectedValue" formControlName="category" >
+              <nz-option nzLabel="Arts créatifs et Design" nzValue="Arts créatifs et Design"></nz-option>
+              <nz-option nzLabel="Programmation et Développement" nzValue="Programmation et Développement"></nz-option>
+              <nz-option nzLabel="Santé et Forme physique" nzValue="Santé et Forme physique"></nz-option>
+
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse [nzBordered]="false" class="collapse">
+      <nz-collapse-panel  nzHeader="Galeries" [nzActive]="">
+
+        <nz-upload
+          nzType="drag"
+          [nzMultiple]="true"
+          [nzShowUploadList]="{ showPreviewIcon: false, showRemoveIcon: true, showDownloadIcon: false }"
+          [nzData]="fillFormData()"
+          [nzAction]="nzAction"
+          nzListType="picture"
+          nzAccept="image/*"
+          (nzChange)="handleChange($event)"
+        >
+          <p class="ant-upload-drag-icon">
+            <span nz-icon nzType="inbox"></span>
+          </p>
+          <p class="ant-upload-text">Cliquez ou faites glisser le fichier dans cette zone pour le télécharger</p>
+          <p class="ant-upload-hint">
+            Support pour un téléchargement unique ou en vrac. Il est strictement interdit de télécharger des données d'entreprise ou d'autres fichiers interdits.
+          </p>
+        </nz-upload>
+      </nz-collapse-panel>
+    </nz-collapse>
+
+
+
+
+
+
+
+
+
+  </form>
+</nz-modal>

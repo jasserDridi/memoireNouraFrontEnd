@@ -1,0 +1,429 @@
+<app-home-header> </app-home-header>
+
+<main>
+  <!--? slider Area Start-->
+  <section class="slider-area ">
+    <div class="slider-active">
+      <!-- Single Slider -->
+      <div class="single-slider slider-height d-flex align-items-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-6 col-lg-7 col-md-12">
+              <div class="hero__caption">
+                <h1 data-animation="fadeInLeft" data-delay="0.2s">Plateforme d'achat <br> tout-en-un</h1>
+                <p data-animation="fadeInLeft" data-delay="0.4s">Développez vos compétences grâce à des cours, des certificats et des diplômes en ligne délivrés par des universités et des entreprises de renommée mondiale.</p>
+                <a routerlink="/login" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.7s" *ngIf="sessionStorage.getItem('userName') == undefined" >Rejoindre gratuitement
+
+
+
+
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ? services-area -->
+  <div class="services-area">
+    <div class="container">
+      <div class="row justify-content-sm-center">
+        <div class="col-lg-4 col-md-6 col-sm-8">
+          <div class="single-services mb-30">
+            <div class="features-icon">
+              <img src="assets/img/icon/icon1.svg" alt="">
+            </div>
+            <div class="features-caption">
+              <h3>60+ cours </h3>
+              <p>Research and Testing,Mobile App Design ...</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-8">
+          <div class="single-services mb-30">
+            <div class="features-icon">
+              <img src="assets/img/icon/icon2.svg" alt="">
+            </div>
+            <div class="features-caption">
+              <h3>Prestataires experts</h3>
+              <p>des professionnels hautement qualifiés et expérimentés dans leur domaine</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-8">
+          <div class="single-services mb-30">
+            <div class="features-icon">
+              <img src="assets/img/icon/icon3.svg" alt="">
+            </div>
+            <div class="features-caption">
+              <h3>Événements en vedette
+
+
+
+
+              </h3>
+              <p>Ici,vous trouverez les derniers événements.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Courses area start -->
+  <!-- Courses area start -->
+  <div class="courses-area section-padding40 fix" style="padding-bottom: 0px">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-7 col-lg-8">
+          <div class="section-tittle text-center mb-55">
+            <h2>Nos service en vedette
+
+
+
+
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div class="courses-actives" style="display: flex">
+        <!-- Single -->
+        <div class="properties pb-20">
+          <div class="properties__card">
+            <div class="properties__img overlay1">
+              <a href="#"><img src="assets/img/formation-metier-ux-ui-designer-pole-emploi.jpg" alt=""></a>
+            </div>
+            <div class="properties__caption">
+              <p>User Experience</p>
+              <h3><a href="#">Fondamentaux de l'UX pour la conception d'applications</a></h3>
+              <p>{{descriptionDocker !== null ? (descriptionDocker.length > 120 ? (descriptionDocker.substring(0, 120) + '...') : descriptionDocker) :''}}
+              <div class="properties__footer d-flex justify-content-between align-items-center">
+
+                <div class="price">
+                  <span>135 DT</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- Single -->
+        <!-- Single -->
+        <div class="properties pb-20">
+          <div class="properties__card">
+            <div class="properties__img overlay1">
+              <a href="#"><img src="assets/img/maxresdefault%20(1).jpg" alt=""></a>
+            </div>
+            <div class="properties__caption">
+              <p>DEVOPS</p>
+              <h3><a href="#">Les 8 meilleures pratiques de Docker
+              </a></h3>
+              <p>{{descriptionUx !== null ? (descriptionUx.length > 120 ? (descriptionUx.substring(0, 120) + '...') : descriptionUx) :''}}
+              </p>
+              <div class="properties__footer d-flex justify-content-between align-items-center">
+
+                <div class="price">
+                  <span>25 DT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Single -->
+        <!-- Single -->
+        <div class="properties pb-20">
+          <div class="properties__card">
+            <div class="properties__img overlay1">
+              <a href="#"><img src="assets/img/tunisia-digital-summit.jpg" alt=""></a>
+            </div>
+            <div class="properties__caption">
+              <p>Evenement</p>
+              <h3><a href="#">La 5ème édition du “Tunisia Digital Summit”</a></h3>
+              <p>{{descriptionEvent !== null ? (descriptionEvent.length > 130 ? (descriptionEvent.substring(0, 130) + '...') : descriptionEvent) :''}}
+              </p>
+              <div class="properties__footer d-flex justify-content-between align-items-center">
+
+                <div class="price">
+                  <span>60 DT</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- Single -->
+        <!-- Single -->
+        <div class="properties pb-20">
+          <div class="properties__card">
+            <div class="properties__img overlay1">
+              <a href="#"><img src="assets/img/industrie4.0-apii-salon-smart.jpg" alt=""></a>
+            </div>
+            <div class="properties__caption">
+              <p>Evenement</p>
+              <h3><a href="#">Industrie 4.0 en Tunisie, une transition en route</a></h3>
+              <p>{{descriptionEvent2 !== null ? (descriptionEvent2.length > 120 ? (descriptionEvent2.substring(0, 120) + '...') : descriptionEvent2) :''}}
+
+              </p>
+              <div class="properties__footer d-flex justify-content-between align-items-center">
+
+                <div class="price">
+                  <span>36DT</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- Single -->
+      </div>
+    </div>
+  </div>
+  <!-- Courses area End -->
+<div class="topic-area section-padding40">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-7 col-lg-8">
+        <div class="section-tittle text-center mb-55">
+          <h2>Explorez les sujets les plus populaires
+
+
+
+
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="single-topic text-center mb-30">
+          <div class="topic-img">
+            <img style="border-radius: 10%; width: 272px; height: 180px" src="assets/img/gallery/topic1.png" alt="">
+            <div class="topic-content-box">
+              <div class="topic-content">
+                <h3><a >Programing</a></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="single-topic text-center mb-30">
+          <div class="topic-img">
+            <img style="border-radius: 10%; width: 272px; height: 180px" src="assets/img/Artificial-Intelligence-in-Higher-Education.jpg" alt="">
+            <div class="topic-content-box">
+              <div class="topic-content">
+                <h3><a >Artificial Intelligence (IA)
+                </a></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="single-topic text-center mb-30">
+          <div class="topic-img">
+            <img style="border-radius: 10%; width: 272px; height: 180px" src="assets/img/gallery/topic3.png" alt="">
+            <div class="topic-content-box">
+              <div class="topic-content">
+                <h3><a >Cybersécurité </a></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="single-topic text-center mb-30">
+          <div class="topic-img">
+            <img style="border-radius: 10%; width: 272px; height: 180px" src="assets/img/gallery/topic4.png" alt="">
+            <div class="topic-content-box">
+              <div class="topic-content">
+                <h3><a >Big Data </a></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="single-topic text-center mb-30">
+          <div class="topic-img">
+            <img style="border-radius: 10%; width: 272px; height: 180px"src="assets/img/gallery/topic5.png" alt="">
+            <div class="topic-content-box">
+              <div class="topic-content">
+                <h3><a >Internet des objets (IoT)</a></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="single-topic text-center mb-30">
+          <div class="topic-img">
+            <img style="border-radius: 10%; width: 272px; height: 180px" src="assets/img/gallery/topic6.png" alt="">
+            <div class="topic-content-box">
+              <div class="topic-content">
+                <h3><a >DevOps </a></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="single-topic text-center mb-30">
+          <div class="topic-img">
+            <img style="border-radius: 10%; width: 272px; height: 180px" src="assets/img/gallery/topic7.png" alt="">
+            <div class="topic-content-box">
+              <div class="topic-content">
+                <h3><a >Réalité virtuelle (VR) </a></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="single-topic text-center mb-30">
+          <div class="topic-img">
+            <img style="border-radius: 10%; width: 272px; height: 180px" src="assets/img/gallery/topic8.png" alt="">
+            <div class="topic-content-box">
+              <div class="topic-content">
+                <h3><a >Réalité virtuelle (VR) </a></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- top subjects End -->
+<!--? About Area-3 Start -->
+<section class="about-area3 fix">
+  <div class="support-wrapper align-items-center">
+    <div class="right-content3">
+      <!-- img -->
+      <div class="right-img">
+        <img src="assets/img/gallery/about3.png" alt="">
+      </div>
+    </div>
+    <div class="left-content3">
+      <!-- section tittle -->
+      <div class="section-tittle section-tittle2 mb-20">
+        <div class="front-text">
+          <h2 class="">Résultats d'apprentissage des cours que vous suivrez.
+
+
+
+
+          </h2>
+        </div>
+      </div>
+      <div class="single-features">
+        <div class="features-icon">
+          <img src="assets/img/icon/right-icon.svg" alt="">
+        </div>
+        <div class="features-caption">
+          <p>Techniques pour interagir efficacement avec des enfants et des jeunes vulnérables.</p>
+        </div>
+      </div>
+      <div class="single-features">
+        <div class="features-icon">
+          <img src="assets/img/icon/right-icon.svg" alt="">
+        </div>
+        <div class="features-caption">
+          <p>Rejoignez des millions de personnes du monde entier qui apprennent ensemble.
+
+          </p>
+        </div>
+      </div>
+      <div class="single-features">
+        <div class="features-icon">
+          <img src="assets/img/icon/right-icon.svg" alt="">
+        </div>
+        <div class="features-caption">
+          <p>Rejoignez des millions de personnes du monde entier qui apprennent ensemble. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- About Area End -->
+<!--? Team -->
+<section class="team-area section-padding40 fix">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-7 col-lg-8">
+        <div class="section-tittle text-center mb-55">
+          <h2>Experts de la communauté
+
+
+
+
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="team-active" style="display: flex;margin-left: 25%">
+      <div class="single-cat text-center">
+        <div class="cat-icon">
+          <img src="assets/noura.png" style="width: 180px;height: 180px;border-radius: 50% 50% 50%;border: 12px solid #f5f5f5" alt="">
+        </div>
+        <div class="cat-cap">
+          <h5><a href="services.html" >Ms. Bouhouch Noura</a></h5>
+          <p>La fondatrice de cette plateforme.
+
+
+
+
+            .</p>
+        </div>
+      </div>
+      <div class="single-cat text-center">
+        <div class="cat-icon">
+          <img src="assets/avatar.png" style="width: 180px;height: 180px;border-radius: 50% 50% 50%;border: 12px solid #f5f5f5" alt="">
+        </div>
+        <div class="cat-cap">
+          <h5><a href="services.html">Mr. CHaker Katar</a></h5>
+          <p>Un mentor éducatif inspirant et dévoué</p>
+        </div>
+      </div>
+
+  </div>
+  </div>
+</section>
+<!-- Services End -->
+<!--? About Area-2 Start -->
+<section class="about-area2 fix pb-padding">
+  <div class="support-wrapper align-items-center">
+    <div class="right-content2">
+      <!-- img -->
+      <div class="right-img">
+        <img src="assets/img/gallery/about2.png" alt="">
+      </div>
+    </div>
+    <div class="left-content2">
+      <!-- section tittle -->
+      <div class="section-tittle section-tittle2 mb-20">
+        <div class="front-text">
+          <h2 class="">Veuillez saisir votre adresse <br> e-mail pour vous abonner à notre newsletter.</h2>
+          <input style="
+          font-size: 20px;
+    width: 600PX;
+    border: 2px solid grey;
+    height: 40PX;
+    padding: 1px;
+    margin: 2px;
+    margin-bottom: 30px;"
+                 type="email">
+          <a href="#" class="btn">Rejoindre gratuitement
+
+
+
+
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- About Area End -->
+</main>

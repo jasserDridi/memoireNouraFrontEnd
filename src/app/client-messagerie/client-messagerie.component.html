@@ -1,0 +1,74 @@
+
+<h1 class="title">Boit de message </h1>
+
+<div class="message-container">
+  <div class="right-panel slider" style="width: 300px;">
+
+    <div class="slider-item" *ngFor="let user of users;let i = index" (click)="getClickedUser(user,i)">
+      <div class="item-content">
+        <div src="assets/logoo.jpg" class="logo"  [style.background-color]="this.colorList[i]"> {{createLogo(user)}}</div>
+        <p style="color: #014945;font-size: 18px;font-family:'Arial' ;  margin-left: 20px;">{{user.prenom + " "+ user.nom }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="left-panel">
+    <div class="header" *ngIf="clickedUser != undefined || clickedUser != null">
+
+      <div src="assets/logoo.jpg" class="logo"  [style.background-color]="this.colorList[this.clickedIndice]">  {{createLogo(clickedUser)}} </div>
+      {{ clickedUser.prenom + " "+ clickedUser.nom }}</div>
+
+    <div class="content" *ngIf="this.chat !=null || this.chat != undefined">
+
+      <div class="message"   *ngFor="let message of this.chat.messages" [ngClass]="message.expediteurId == sessionStorage.getItem('userId') ? 'expediteurMessage' : 'destinateurMessage'">
+
+        <div class="message-content"  >
+          <span>{{message.message}}</span>
+          <span class="date">{{getDate(message.date)}}</span>
+          <button *ngIf="message.expediteurId == sessionStorage.getItem('userId')" class="delete-button" (click)="deleteMessage(message.id)"><i style="font-size: 10px" class="fas fa-trash-alt"></i></button>
+        </div>
+        <div class="nz-badge">
+          <span class="nz-badge-dot"></span>
+        </div>
+      </div>
+
+      <!-- Add more messages here -->
+    </div>
+    <div class="input-container">
+      <input type="text" [(ngModel)]="message" placeholder="Type your message" />
+      <button  class="button-26"  (keyup)="addChat()" (click)="addChat()" [disabled]="(this.message == null || this.message=='' || this.message == undefined ) && sessionStorage.getItem('userRole') != 'CLIENT'" >Envoyer</button>
+    </div>
+  </div>
+  <div class="right-panel slider" style="width: 300px;margin-left: 20px;text-align: center">
+
+
+        <div src="assets/logoo.jpg" class="BigLogo" style="margin-top:15px " [style.background-color]="this.colorList[this.clickedIndice]"> {{createLogo(clickedUser)}}</div>
+
+    <div class="contentUser">
+      <div class="description">
+        <div class="userDetail">
+          <span class="icon"><span nz-icon nzType="team" nzTheme="outline"></span></span>
+          <span class="label">{{this.clickedUser.prenom}}  {{this.clickedUser.nom}}</span>
+        </div>
+        <div class="userDetail">
+          <span class="icon"><span nz-icon nzType="robot" nzTheme="outline"></span></span>
+          <span class="label">{{sessionStorage.getItem('userRole')}}</span>
+        </div>
+        <div class="userDetail">
+          <span class="icon"><span nz-icon nzType="phone" nzTheme="outline"></span></span>
+          <span class="label">{{this.clickedUser.numeroTel}}</span>
+        </div>
+        <div class="userDetail" style="margin-bottom: 60px">
+          <span class="icon"><span nz-icon nzType="environment" nzTheme="outline"></span> </span>
+          <span class="label">{{this.clickedUser.lieu}}</span>
+        </div>
+      </div>
+      <div class="map" >
+        <iframe
+                [src]='mapsURL | safe'
+                frameborder="0"
+                allowfullscreen webkitallowfullscreen mozallowfullscreen>
+        </iframe>      </div>
+    </div>
+  </div>
+  </div>
+

@@ -1,0 +1,66 @@
+<div style="background-color: #f5f2f2">
+  <div style="display: flex;width: 100%;height: 30px;margin-bottom: 20px"  *ngIf="sessionStorage.getItem('userName')!=null">
+  <h1  class="title"  style="
+    height: 35px;
+    margin-bottom: 20px;
+   ">Arts créatifs et Design</h1>
+  <a routerlink="/allServices" class="linkToAllService" style="    margin-top: 0px;
+">  <span nz-icon nzType="arrow-right" nzTheme="outline"  class="arrow"></span> </a>
+</div>
+<div class="container" #container style="width:67%"  *ngIf="sessionStorage.getItem('userName')!=null">
+
+  <div class="left" *ngIf="totalPages > 1" (click)="currentPage != 1 && changePage(-1)" [ngClass]="{'disabled':currentPage === 1}"> <span style="cursor: pointer;font-size: 26px; color: #08c;"  nz-icon nzType="left" nzTheme="outline"></span></div>
+  <div class="cards" [ngClass]="{'w-100': totalPages === 1}">
+    <div class="overflow" [ngStyle]="{'width': overflowWidth, 'left': pagePosition}" style="">
+      <div class="cardCustom" *ngIf="this.creativeArts.length == 0 "  style="margin-left: 200%">
+        <nz-empty
+                [nzNotFoundContent]="contentTpl"
+        >
+          <ng-template #contentTpl>
+        <span>
+          Aucune donnée n'existe
+
+        </span>
+          </ng-template>
+        </nz-empty>
+      </div>
+      <div  *ngIf="this.creativeArts.length != 0 " style="display: flex">
+      <div class="cardCustom"  *ngFor="let formation of creativeArts"  >
+        <div class="properties pb-20 " style="width:240px">
+          <div class="properties__card" >
+            <div class="properties__img ">
+              <a routerlink="/"><img style="width: 100%"  *ngIf="formation.galories != undefined" src="{{formation.galories[0]}}" alt=""></a>
+              <a routerlink="/"><img style="width: 100%"  src="assets/imgNotFound.png" alt=""></a>
+
+            </div>
+            <div class="properties__caption">
+              <p class="pHeader"> hhhh</p>
+
+              <h3><a style="    color: #007bff;cursor: default;
+    text-decoration: none;
+    background-color: transparent;"> TEST
+              </a></h3>
+              <p>{{ formation.description.length > 30 ? formation.description.substring(0, 30) + '...' : formation.description }} hhhhh</p>
+
+              <div class="properties__footer d-flex justify-content-between align-items-center">
+
+                <div class="price">
+                  <span>{{formation.prix}} DT</span>
+                </div>
+              </div>
+              <a routerLink="/descriptionService"  class="border-btn border-btn2">En savoir plus</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="right" *ngIf="totalPages > 1" (click)="currentPage != totalPages && changePage(+1)"
+       [ngClass]="{'disabled':currentPage === totalPages}">
+    <span style="font-size: 26px; color: #08c;cursor: pointer"  nz-icon nzType="right" nzTheme="outline"></span>
+
+  </div>
+</div>
+</div>

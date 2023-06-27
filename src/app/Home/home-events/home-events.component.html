@@ -1,0 +1,14 @@
+<app-home-header> </app-home-header>
+<nz-result nzStatus="403" nzTitle="403" nzSubTitle="Désolé, vous n'êtes pas autorisé à accéder à cette page.
+Merci de vous connecter " style="margin-top: 150px; margin-bottom: 150px" *ngIf="sessionStorage.getItem('userName')==null">
+  <div nz-result-extra>
+    <button nz-button nzType="primary" (click)="goLogin()" >se connecter</button>
+
+  </div>
+</nz-result>
+
+<div style="margin-top: 150px;margin-left: 300px" *ngIf="sessionStorage.getItem('userName')!=null">
+  <app-cards-line category="Arts créatifs et Design" [serviceType]="'EVENT'"></app-cards-line>
+  <app-cards-line category="Programmation et Développement" [serviceType]="'EVENT'"></app-cards-line>
+  <app-cards-line category="Santé et Forme physique" [serviceType]="'EVENT'"></app-cards-line>
+</div>

@@ -1,0 +1,108 @@
+<app-home-header></app-home-header>
+<div class="container">
+  <div class="left-div">
+    <!-- Content for the left div -->
+    <div class="large-image-container">
+      <img  *ngIf="data.images != undefined || data.galories != undefined" [src]="this.selectedImage" alt="Large Image" class="large-image" />
+
+      <img  *ngIf="data.images == undefined && data.galories == undefined" [src]="'https://via.placeholder.com/300'" alt="Large Image" class="large-image" />
+    </div>
+    <div class="small-images-container"  *ngIf="data.images == undefined || data.galories == undefined">
+      <img
+        *ngFor="let image of images"
+        [src]="image"
+        alt="Small Image"
+        class="small-image"
+        (click)="selectImage(image)"
+      />
+    </div>
+  </div>
+  <div class="right-divs">
+
+    <div class="right-div">
+      <!-- Content for the second right div -->
+      <div class="content">
+        <img src="assets/prestatire.png" alt="Logo" class="logo" />
+        <h3 class="title">{{data.instructorNom}}</h3>
+      </div>
+    </div>
+    <div class="right-div">
+      <!-- Content for the first right div -->
+      <h3 class="title">Remise</h3>
+      <div class="content">
+        <p class="price" *ngIf="data.isPromotional ==true ">Remise : {{data.pourcentage}} %</p><br>
+      </div>
+    </div>
+    <div class="right-div">
+      <!-- Content for the first right div -->
+      <h3 class="title">Prix après réduction</h3>
+      <div class="content">
+        <p class="price"  >{{data.promotionalPrice}} DT</p>
+      </div>
+    </div>
+
+   <div class="right-div">
+      <div class="nom" >
+        <h3 class="title">{{data.nom}}</h3>
+        <p *ngIf="data.category != undefined">         <span nz-icon nzType="unordered-list" nzTheme="outline"></span>  {{data.category}} </p>
+        <p *ngIf="data.dure != undefined"> <span nz-icon nzType="clock-circle" nzTheme="outline"></span>  {{data.dure}} H</p>
+        <p *ngIf="data.lieu != undefined"><span nz-icon nzType="environment" nzTheme="outline"></span> {{data.lieu}}</p>
+
+        <p *ngIf="data.startDate != undefined"> <span nz-icon nzType="clock-circle" nzTheme="outline"></span>  debut : {{data.startDate}}</p>
+        <p *ngIf="data.endDate != undefined"> <span nz-icon nzType="clock-circle" nzTheme="outline"></span>  fin : {{data.endDate}}</p>
+        <p  *ngIf="data.nbrTicket != undefined">         <span nz-icon nzType="file-protect" nzTheme="outline"></span> {{data.nbrTicket}} Tickets restant </p>
+        <p *ngIf="data.niveau != undefined" >         <span nz-icon nzType="file-protect" nzTheme="outline"></span> Niveau {{data.niveau}} </p>
+        <p *ngIf="data.language != undefined">         <span nz-icon nzType="file-protect" nzTheme="outline"></span> Language {{data.language}} </p>
+        <p *ngIf="data.offersCertification != undefined || data.offersCertification == true">         <span nz-icon nzType="file-protect" nzTheme="outline"></span> offre de certification
+        </p>
+
+      </div>
+      <div  class="description" >
+        <h3 >Description</h3>
+        <p>{{data.description}}</p>
+      </div>
+      <div  *ngIf="data.contenu != undefined"  class="conent" >
+        <h3>Contenu</h3>
+
+        <p>{{data.contenu}}</p>
+      </div>
+      <div  *ngIf="data.prerequis != undefined"  class="prerequis" >
+        <h3 >Prerequis</h3>
+
+        <p>{{data.prerequis}}</p>
+      </div>
+    </div>
+    <div class="right-div" *ngIf="sessionStorage.getItem('userRole')=='CLIENT'">
+      <!-- Content for the third right div -->
+      <h3 class="title">Achat</h3>
+      <div class="content">
+        <button class="button-3" role="button" (click)="showModal()">Achat</button>
+      </div>
+  </div>
+</div>
+<div class="additional-info">
+  <!-- Additional info content -->
+</div>
+</div>
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Achat"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk(template)"
+  [nzOkLoading]="isOkLoading"
+>
+  <p *nzModalContent>vous voulez acheter cet article</p>
+</nz-modal>
+<ng-template #template>
+  <div class="ant-notification-notice-content">
+    <div class="ant-notification-notice-with-icon">
+          <span class="ant-notification-notice-icon">
+            <span nz-icon nzType="smile" style="color: rgb(16, 142, 233);"></span>
+          </span>
+      <div class="ant-notification-notice-message">votre demande est soumise</div>
+      <div class="ant-notification-notice-description">
+      Prestatire vous répondra dans les plus brefs délais
+      </div>
+    </div>
+  </div>
+</ng-template>

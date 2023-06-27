@@ -1,0 +1,170 @@
+<div class="container">
+  <h1  class="title">Evenement</h1>
+
+<button nz-button class=" label-item lang-btn addButton" nzType="primary" routerLink="/prestatire/addEvent"  style="float: right">Ajouter un eventement </button>
+
+
+<nz-table #sortTable [nzData]="listOfData"  nzSize="middle" nzTableLayout="fixed" [nzLoading]="loading"  class="collapse center-table">
+  <thead>
+  <tr>
+    <th *ngFor="let column of listOfColumn">
+      {{ column.title }}
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of sortTable.data" >
+    <td >{{ data.nom }}</td>
+    <td>{{ data.description }}</td>
+    <td>{{ data.lieu }}</td>
+    <td>{{ data.prix }} DT </td>
+    <td nzWidth="100px">{{ formatDate(data.startDate) }}</td>
+    <td>{{ formatDate(data.endDate) }}</td>
+    <td >{{ data.nbrTicket }}</td>
+    <td>{{ data.category }}</td>
+    <td >
+      <div class="image-row">
+        <img *ngFor="let glory of data?.galories | slice:0:2" src="{{ glory }}" width="50px" height="50px" alt="test">
+      </div>
+
+
+    </td>
+    <td>
+
+      <button nz-button nzDanger style="width: 50px;margin-right: 7px" nzType="primary" (click)="showDeleteConfirm(data.id)"><span nz-icon nzType="delete" nzTheme="outline"></span></button>
+      <button nz-button nzBlock style="width: 50px" nzType="primary" (click)="showModal(data)"> <span nz-icon nzType="edit" nzTheme="outline"></span></button>
+
+    </td>
+  </tbody>
+</nz-table>
+
+</div>
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Modal Title"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [nzOkLoading]="isOkLoading"
+>
+  <form
+    nz-form
+  *nzModalContent
+    [nzLayout]="'horizontal'"
+    [formGroup]="addForm">
+    <nz-collapse [nzBordered]="false" class="collapse">
+      <nz-collapse-panel   nzHeader="Nom *" [nzActive]="">
+        <nz-form-item>
+          <nz-form-control  nzErrorTip="cette champ est obligatoire">
+            <input class="input" nz-input formControlName="name"   />
+          </nz-form-control>
+        </nz-form-item>
+
+      </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse [nzBordered]="false" class="collapse">
+      <nz-collapse-panel  nzHeader="Description" [nzActive]="">
+
+        <nz-form-item>
+          <nz-form-control >
+            <nz-textarea-count >
+              <textarea formControlName="description" class="input" nz-input rows="3" placeholder="write any thing"></textarea>
+            </nz-textarea-count>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse [nzBordered]="false" class="collapse">
+      <nz-collapse-panel  nzHeader="Lieu *" [nzActive]="">
+
+        <nz-form-item>
+          <nz-form-control  nzErrorTip="cette champ est obligatoire">
+            <input nz-input  class="input" formControlName="place"  />
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse [nzBordered]="false" class="collapse">
+      <nz-collapse-panel  nzHeader="Prix * " [nzActive]="">
+
+        <nz-form-item>
+          <nz-form-control  nzErrorTip="cette champ est obligatoire">
+            <input nz-input  class="input" type="number" formControlName="price"  />
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse [nzBordered]="false" class="collapse" >
+      <nz-collapse-panel  nzHeader="Debut * " [nzActive]="">
+
+        <nz-form-item>
+          <nz-form-control  nzErrorTip="cette champ est obligatoire">
+            <nz-date-picker class="input" style="width: 100%" nzShowTime formControlName="startDate"></nz-date-picker>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse [nzBordered]="false" class="collapse" >
+      <nz-collapse-panel  nzHeader="Fin * " [nzActive]="">
+
+        <nz-form-item>
+          <nz-form-control  nzErrorTip="cette champ est obligatoire">
+            <nz-date-picker class="input" style="width: 100%" nzShowTime formControlName="endDate"></nz-date-picker>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse [nzBordered]="false" class="collapse">
+      <nz-collapse-panel   nzHeader="Nombre de tickets  " [nzActive]="">
+        <nz-form-item>
+          <nz-form-control   nzErrorTip="cette champ est obligatoire">
+            <input nz-input type="number" class="input" formControlName="ticketsNumber"  />
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse [nzBordered]="false" class="collapse">
+      <nz-collapse-panel  nzHeader="Category" [nzActive]="">
+
+        <nz-form-item>
+          <nz-form-control    nzErrorTip="cette champ est obligatoire">
+            <input nz-input class="input" formControlName="category"  />
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+
+    <nz-collapse [nzBordered]="false" class="collapse">
+      <nz-collapse-panel  nzHeader="Galeries" [nzActive]="">
+
+        <nz-upload
+          nzType="drag"
+          [nzMultiple]="true"
+          [nzShowUploadList]="{ showPreviewIcon: false, showRemoveIcon: true, showDownloadIcon: false }"
+          [nzData]="fillFormData()"
+          [nzAction]="nzAction"
+          nzListType="picture"
+          nzAccept="image/*"
+          [(nzFileList)]="defaultFileList"
+          (nzChange)="handleChange($event)"
+        >
+          <p class="ant-upload-drag-icon">
+            <span nz-icon nzType="inbox"></span>
+          </p>
+          <p class="ant-upload-text">Cliquez ou faites glisser le fichier dans cette zone pour le télécharger</p>
+          <p class="ant-upload-hint">
+            Support pour un téléchargement unique ou en vrac. Il est strictement interdit de télécharger des données d'entreprise ou d'autres fichiers interdits.
+          </p>
+        </nz-upload>
+      </nz-collapse-panel>
+    </nz-collapse>
+
+
+
+
+
+
+
+
+
+  </form>
+</nz-modal>

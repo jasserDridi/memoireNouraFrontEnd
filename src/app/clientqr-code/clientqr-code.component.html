@@ -1,0 +1,45 @@
+<div class="container">
+  <h1  class="title">Evenements</h1>
+
+
+
+  <nz-table #sortTable [nzData]="listOfData"  nzSize="middle" nzTableLayout="fixed" [nzLoading]="loading"  class="collapse center-table">
+    <thead>
+    <tr>
+      <th *ngFor="let column of listOfColumn">
+        {{ column.title }}
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of sortTable.data" >
+      <td >{{ data.eventNom }}</td>
+      <td>{{ data.lieu }}</td>
+      <td>{{ data.prix }} DT </td>
+      <td >{{ data.startDate }}</td>
+      <td  >{{ data.endDate }}</td>
+      <td >{{ data.category }}</td>
+      <td> <span  style="padding: 3px;border-radius: 10%" [ngClass]="{
+  'status-pending': data.status === 'En attente',
+  'status-rejected': data.status === 'Refuse',
+  'status-accepted': data.status === 'Accepte'
+}">{{ data.status }} </span></td>
+      <td style="width:90px" *ngIf="data.status =='Accepte' "> <a>  <span nz-icon (click)="showModalMiddle(data.qrCode)" nzType="eye" nzTheme="outline"></span></a></td>
+      <td style="width:90px" *ngIf="data.status !='Accepte' ">   - </td>
+
+    </tbody>
+  </nz-table>
+
+</div>
+<nz-modal
+  [(nzVisible)]="isVisibleMiddle"
+  nzTitle="Merci d'avoir scanné ce code QR"
+  nzCentered
+  [nzFooter]="null"
+  (nzOnCancel)="handleCancelMiddle()"
+
+>
+  <ng-container *nzModalContent>
+    <img style="display: block; margin: 0 auto;" src="{{this.dataForModal}}">
+  </ng-container>
+</nz-modal>

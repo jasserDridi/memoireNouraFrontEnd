@@ -1,0 +1,24 @@
+<div class="container">
+  <h1  class="title">Tickets pour les events</h1>
+
+
+
+  <nz-table #sortTable [nzData]="listOfData"  nzSize="middle" nzTableLayout="fixed" [nzLoading]="loading"  class="collapse center-table">
+    <thead>
+    <tr>
+      <th *ngFor="let column of listOfColumn">
+        {{ column.title }}
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of sortTable.data" >
+      <td >{{ data.eventNom }}</td>
+      <td>{{ data.itemType }}</td>
+      <td>{{ data.prix }} DT </td>
+      <td >{{ data.ticket }}</td>
+
+    </tbody>
+  </nz-table>
+
+</div>

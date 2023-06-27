@@ -1,0 +1,273 @@
+.cardCustom{
+  margin-right: 40px;
+  display: flex;
+  transition: transform 0.2s;
+
+}
+.cardCustom:hover{
+  margin-right: 40px;
+  display: flex;
+  transform: scale(1.05);
+
+}
+
+.w-100 {
+  width: 100%!important;
+  display: flex;
+
+}
+
+.container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  height: 70%;
+  margin:auto;
+}
+
+.cards {
+  width: calc(100% - 80px);
+  overflow: hidden;
+  display: flex;
+}
+
+.overflow {
+  position: relative;
+  display: flex;
+
+}
+
+.overflow:hover {
+  position: relative;
+  display: flex;
+
+}
+
+.card {
+  height: 300px;
+  background-color: #e0e1e2;
+  border-radius: 5px;
+  display: inline-block;
+  margin-right: 10px;
+  position: relative;
+}
+
+.no-right-margin {
+  margin-right: 0px;
+}
+
+.card span {
+  font-size:48px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.left,
+.right {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top:25%;
+  transform: translateY(-50%);
+}
+
+.left.disabled, .right.disabled {
+  background-color: rgba(227, 227, 227, 0.5);
+}
+
+.left {
+  left: 0;
+  transform: translate(-50%, -50%);
+
+}
+
+.right {
+  right: 0;
+}
+.section-tittle h2 {
+  font-size: 42px;
+  display: block;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 21px;
+}
+h2
+{
+  font-family: "Josefin Sans",sans-serif;
+  color: #4255A4 !important;
+  margin-top: 0px;
+  font-style: normal;
+}
+.btn {
+  background: #FF9F67;
+  font-family: "Josefin Sans",sans-serif;
+  text-transform: capitalize;
+  padding: 25px 38px !important;
+  color: #fff;
+  cursor: pointer;
+  display: inline-blockc !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  border-radius: 5px !important;
+  line-height: 1 !important;
+  -moz-user-select: none !important;
+  letter-spacing: 1px !important;
+  line-height: 0 !important;
+  margin-bottom: 0 !important;
+  cursor: pointer;
+  transition: color 0.4s linear;
+  position: relative;
+  z-index: 1;
+  border: 0;
+  overflow: hidden;
+  margin: 0;
+}
+.courses-area .properties__img img {
+  height: 170px !important;
+  width: 274px !important;
+  border-radius: 10px 10px 0 0;
+  position: relative;
+}
+.courses-area .properties__caption {
+  padding: 29px 20px 20px 20px;
+  height: 450px !important;
+}
+.services-area .single-services {
+  display: flex;
+  height: 170px;
+  box-shadow: 0px 25px 60px rgba(66,85,164,0.06);
+  padding: 29px 24px;
+  border-radius: 20px;
+  background: #fff;
+}
+.overlay2:hover {
+  border-radius: 20px;
+  position: absolute;
+  content: "";
+  background-color: rgba(0, 1, 2, 0.33);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  background-repeat: no-repeat;
+}
+.overlay2 {
+  border-radius: 20px;
+  position: absolute;
+  content: "";
+  background-color: rgba(0, 1, 2, 0.8);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  background-repeat: no-repeat;
+}
+.section-tittle h2 {
+  font-size: 42px;
+  display: block;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 21px;
+}
+h2
+{
+  font-family: "Josefin Sans",sans-serif;
+  color: #4255A4 !important;
+  margin-top: 0px;
+  font-style: normal;
+}
+.btn {
+  background: #FF9F67;
+  font-family: "Josefin Sans",sans-serif;
+  text-transform: capitalize;
+  padding: 25px 38px !important;
+  color: #fff;
+  cursor: pointer;
+  display: inline-blockc !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  border-radius: 5px !important;
+  line-height: 1 !important;
+  -moz-user-select: none !important;
+  letter-spacing: 1px !important;
+  line-height: 0 !important;
+  margin-bottom: 0 !important;
+  cursor: pointer;
+  transition: color 0.4s linear;
+  position: relative;
+  z-index: 1;
+  border: 0;
+  overflow: hidden;
+  margin: 0;
+}
+.courses-area .properties__img img {
+  height: 170px !important;
+  width: 274px !important;
+  border-radius: 10px 10px 0 0;
+  position: relative;
+}
+.courses-area .properties__caption {
+  padding: 29px 20px 20px 20px;
+  height: 450px !important;
+}
+.services-area .single-services {
+  display: flex;
+  height: 170px;
+  box-shadow: 0px 25px 60px rgba(66,85,164,0.06);
+  padding: 29px 24px;
+  border-radius: 20px;
+  background: #fff;
+}
+
+p{
+  font-family: "Mulish",sans-serif;
+  color: #10285d;
+  font-size: 16px;
+  line-height: 30px;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+.pHeader:hover{
+  cursor: default;
+  margin-top: 10px;
+  color: #6E7697;
+
+}
+.pHeader{
+  cursor: default;
+  margin-top: 10px;
+  color: #6E7697;
+
+}
+.price {
+  cursor: default;
+  font-weight: 700;
+  color: #4255A4;
+  font-size: 23px;
+}
+.linkToAllService
+{
+  color: #4255A4;
+
+  MARGIN-TOP: 250px;
+  font-size: 24px;
+  margin-left: 50%;
+}
+.linkToAllService:hover
+{
+  MARGIN-TOP: 250px;
+  font-size: 24px;
+  margin-left: 50%;
+}
+.arrow:hover{
+  color: #4255A4;
+
+}

@@ -1,0 +1,52 @@
+.container
+{
+  background-color: transparent;
+  padding: 24px;
+  height: 100%;
+  width: 80%;
+  margin:auto;
+}
+.title{
+  font-size: 50px;
+  margin: 0px;
+  margin-top: 50px;
+  font-family: SF Pro Display, serif;
+}
+.card
+{
+
+
+  margin-top: 50px;
+  margin-right: 20px;
+  border-radius: 15px;
+}
+a :hover
+{
+  background-color: #e7ebee;
+}
+.cardContent {
+
+
+  color: #786d6d;
+  font-family: SF-Medium, sans-serif;
+  font-size: 16px;
+  font-weight: 550;
+  line-height: 1.19;
+  text-align: left;
+}
+.cardTitle
+{
+  color: #18a189;
+  font-family: SF-Bold,sans-serif;
+  line-height: 1.21;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: left;
+  word-break: break-word;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

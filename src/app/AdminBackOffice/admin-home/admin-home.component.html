@@ -1,0 +1,49 @@
+<div  class="container">
+  <h1 class="title">{{welcomeMessage()}} </h1>
+  <h3 >Ici vous pouvez gérer les utilisateurs,Analyse de données,Tracking </h3>
+  <div nz-row [nzGutter]="8">
+
+
+      <div nz-col [nzSpan]="8">
+        <a routerLink="/admin/users">
+          <nz-card class="card flex-container " nzHoverable="false">
+            <div class="flex-container">
+              <h1 class="cardTitle">Utilisateurs</h1>
+
+              <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+            </div>
+            <h4 class="cardContent">overview les Utilisateurs    </h4>
+          </nz-card>
+        </a>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <a >
+          <nz-card class="card" >
+
+            <div class="flex-container">
+              <h1 class="cardTitle">Analyse de données </h1>
+
+              <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+            </div>
+            <h4 class="cardContent">
+              Encore en développement</h4>
+          </nz-card>
+        </a>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <a >
+          <nz-card class="card" >
+
+            <div class="flex-container">
+              <h1 class="cardTitle">Tracking </h1>
+
+              <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+            </div>
+            <h4 class="cardContent">
+              Encore en développement</h4>
+          </nz-card>
+        </a>
+      </div>
+    </div>
+  </div>
+

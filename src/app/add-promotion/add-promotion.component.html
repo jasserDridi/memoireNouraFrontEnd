@@ -1,0 +1,57 @@
+<div class="container">
+
+
+  <h1  class="title">Promotions</h1>
+  <button nz-button  nzType="primary" (click)="addPromotion()" class="title-btn-position addButton" >Ajouté</button>
+  <div class="spin" [style.background-color]="sucess==false && addForm.valid==false  ? 'white' :'white'">
+    <nz-spin nzSimple [nzSpinning]="sucess==false " [nzSize]="'large'"></nz-spin>
+  </div>
+  <form
+    nz-form
+    [nzLayout]="'horizontal'"
+    [formGroup]="addForm">
+    <nz-collapse [nzBordered]="false" class="collapse" >
+      <nz-collapse-panel  nzHeader="Debut * " [nzActive]="">
+
+        <nz-form-item>
+          <nz-form-control  nzErrorTip="cette champ est obligatoire">
+            <nz-date-picker class="input" style="width: 100%" nzShowTime formControlName="dateDebut"></nz-date-picker>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse [nzBordered]="false" class="collapse" >
+      <nz-collapse-panel  nzHeader="Fin * " [nzActive]="">
+
+        <nz-form-item>
+          <nz-form-control  nzErrorTip="cette champ est obligatoire">
+            <nz-date-picker class="input" style="width: 100%" nzShowTime formControlName="dateFin"></nz-date-picker>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse [nzBordered]="false" class="collapse">
+      <nz-collapse-panel  nzHeader="pourcentage" [nzActive]="">
+        <nz-form-item>
+          <nz-form-control  nzErrorTip="cette champ est obligatoire">
+            <input class="input" type="number" nz-input formControlName="remise"   />
+          </nz-form-control>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+  </form>
+    <nz-collapse [nzBordered]="false" class="collapse">
+      <nz-collapse-panel  nzHeader="Services" [nzActive]="">
+        <nz-form-item>
+        <nz-select
+      nzMode="multiple"
+      nzPlaceHolder="Please select"
+      [nzOptions]="listOfOption"
+      [(ngModel)]="listOfSelectedValue"
+      (click)="onchange()"
+    ></nz-select>
+        </nz-form-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+
+</div>

@@ -1,0 +1,52 @@
+
+// Custom Theming for NG-ZORRO
+// For more information: https://ng.ant.design/docs/customize-theme/en
+@import "../node_modules/ng-zorro-antd/ng-zorro-antd.aliyun.less";
+
+// Override less variables to here
+// View all variables: https://github.com/NG-ZORRO/ng-zorro-antd/blob/master/components/style/themes/default.less
+
+// @primary-color: #1890ff;
+@color-primary:#18a189;
+@font-size: 15px;
+
+// Customize Ant Design theme using variables
+@primary-color: @color-primary;
+@font-size-base: @font-size;
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('./assets/assets/fonts/SFProDisplay-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+.label-item {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+
+  .lang-btn {
+    height: 16px;
+    margin-left: auto;
+    color: #2b2727;
+    cursor: pointer;
+    font-size: 14px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: normal;
+    line-height: normal;
+    text-align: left;
+
+    .gloab-btn-icon {
+      width: 24px;
+      height: 21px;
+      margin-left: 8px;
+      object-fit: contain;
+
+      &.closed-icon {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,63 @@
+<div class="slider-container">
+  <div class="description-container">
+    <div class="description">{{category}}<span class="arrow">&rarr;</span></div>
+    <div class="button-container">
+      <button
+        class="slider-button previous-button"
+        (click)="scrollCards('previous')"
+        [disabled]="selectedCardIndex === 0"
+      >
+        <span nz-icon nzType="left" nzTheme="outline"></span>
+      </button>
+      <button
+        class="slider-button next-button"
+        (click)="scrollCards('next')"
+        [disabled]="selectedCardIndex >= cards.length - visibleCardCount"
+      >
+        <span nz-icon nzType="right" nzTheme="outline"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="cards-container ">
+    <div class="cards ">
+      <nz-empty *ngIf="this.cards.length == 0" style="margin-left: 40%"
+        [nzNotFoundContent]="contentTpl"
+      >
+        <ng-template #contentTpl>
+        <span>
+          Aucune donnée n'existe
+
+        </span>
+        </ng-template>
+      </nz-empty>
+      <div class="card card-transition" *ngFor="let card of visibleCards " (click)="cardClicked(card)">
+        <div class="tag-container">
+          <span class="tag" *ngIf="card.isPromotional == true">En Promotion</span>
+        </div>
+        <img class="img" src="{{card.images[0]}}" *ngIf="card.images != undefined">
+        <img class="img" src="{{card.galories[0]}}" *ngIf="card.galories != undefined">
+        <img class="img" src="assets/imgNotFound.png"  *ngIf="card.galories   == undefined  && card.images == undefined">
+        <div class="cardContent">
+          <div class="tagsList">
+            <span class="tagDure" *ngIf="card.dure != undefined">{{card.dure}}H</span>
+            <span class="tagLang"  *ngIf="card.language != undefined">{{card.language}}</span>
+
+
+          </div>
+          <h3 class="pHeader">{{ card.instructorNom }}
+          </h3>
+
+          <h4><a style="color: #007bff; cursor: default; text-decoration: none; background-color: transparent;">{{ card.nom.length > 20 ? card.nom.substring(0, 20) + '...' : card.nom }} </a></h4>
+          <p>{{ card.description.length > 20 ? card.description.substring(0, 20) + '...' : card.description }} </p>
+          <div class="price">
+            <span *ngIf="card.isPromotional == true" >{{card.promotionalPrice}} DT</span>
+
+            <a  class="border-btn border-btn2" (click)="navigateToDetails(card.id)" >En savoir plus</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
